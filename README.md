@@ -1,44 +1,36 @@
 # Playwright Pet Project for DEMOQA
 
-Этот проект содержит автоматизированные тесты для сайта [DEMOQA](https://demoqa.com/) с использованием Playwright и Pytest.
+Мой пет проект с тестами для сайта-тренажера DEMOQA
 
-## Требования
-- Рекомендуется Python 3.13.3
-  Скачайте Python с [официального сайта](https://www.python.org/downloads/). Во время установки поставьте галочку "Add Python to PATH".
+Тесты написаны с использованием python 3.13
 
 ## Установка и запуск
 
-1. **Склонируйте репозиторий** (если еще не сделали):
-git clone https://github.com/zomba40k/pw_pet_project_on_DEMOQA.git
-
-
-3. **Перейдите в папку проекта**:
-Откройте cmd и выполните:
+1. **Перейди в папку проекта**:
+В cmd:
 cd путь к\pw_pet_project_on_DEMOQA
-Например: `cd C:\Users\UserName\pw_pet_project_on_DEMOQA`.
+По типу: cd C:\Users\UserName\pw_pet_project_on_DEMOQA.
 
 
-3. **Создайте виртуальное окружение**:
+2. **Создай и активируй виртуальное окружение**:
 python -m venv venv
 
-
-4. **Активируйте виртуальное окружение**:
 venv\Scripts\activate
-После этого в командной строке слева появится `(venv)` — это значит, что окружение активно.
+<sub>Слева в строке должно быть (venv)</sub>
 
 
-5. **Установите зависимости**:
+4. **Установите зависимости**:
 pip install -r requirements.txt
 Если Playwright не установлен автоматически, установите его отдельно:
 pip install playwright
 
 
-6. **Установите браузеры для Playwright**:
+5. **Установите браузеры для Playwright**:
 playwright install
 Это загрузит браузеры (Chrome, Firefox и др.), которые нужны для тестов.
 
 
-7. **Запустите тесты**:
+6. **Запустите тесты**:
 - Для запуска smoke-тестов:
 pytest -m smoke
 
