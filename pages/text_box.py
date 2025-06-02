@@ -1,16 +1,18 @@
 from playwright.sync_api import Page, expect
 from faker import Faker
 fake = Faker()
+from pages.base_page import BasePage
 
-class TextBox:
+class TextBox(BasePage):
     def __init__(self, page: Page):
-        self.page = page
+        super().__init__(page)
         self.name_input = page.locator("#userName")
         self.email_input = page.locator("#userEmail")
         self.address_input = page.locator("#currentAddress")
         self.perm_address = page.locator("#permanentAddress")  # Переименовал для единообразия
         self.submit_button = page.locator("#submit")
         self.output = page.locator("#output")
+
     def open(self):
         self.page.goto('https://demoqa.com/text-box', wait_until="domcontentloaded", timeout=60000)
 
@@ -35,7 +37,7 @@ class TextBox:
         return name, email, address, perm_address
 
     def success_message_doesnt_appear(self):
-        expect(self.success_message).not_to_be_visible()
+        expect(self.output).not_to_be_visible()
 
     def check_success_message(self,name, email, address, perm_address):
         self.page.wait_for_selector("#output", timeout=10000)
@@ -45,7 +47,7 @@ class TextBox:
         expect(self.output.locator("#currentAddress")).to_contain_text(address)
         expect(self.output.locator("#permanentAddress")).to_contain_text(perm_address)
 
-    #Отправка формы с пустым значением
+    #Отправка формы со своим значением
     def submit_form_custom(self,field:str,custom_value:str):
         fake = Faker()
         # Сначала сгенерим значения
@@ -75,7 +77,3 @@ class TextBox:
 
         return name, email, address, perm_address
 
-    def check_field_has_error(self, field_locator):
-        class_list = field_locator.get_attribute("class")
-        assert class_list is not None, "Атрибут class не найден"
-        assert 'field-error' in class_list.split(), f"Ожидалось что класс имеет field-error, но получили: {class_list}"

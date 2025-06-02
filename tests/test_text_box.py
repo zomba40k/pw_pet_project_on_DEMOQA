@@ -1,5 +1,6 @@
 from pages.text_box import TextBox
 import pytest
+from pages.base_page import BasePage
 class TestTextBox:
     def test_text_box_is_all_elements_present(self,page):
         text_box = TextBox(page)
@@ -23,8 +24,6 @@ class TestTextBox:
     def test_submit_form_invalid_email(self,page):
         text_box = TextBox(page)
         text_box.open()
-        name, email, address, perm_address = text_box.submit_form_custom("email", "zhopa228@@gmail.com")
+        text_box.submit_form_custom("email", "zhopa228@@gmail.com")
         text_box.check_field_has_error(text_box.email_input)
-
-
-
+        text_box.success_message_doesnt_appear()
