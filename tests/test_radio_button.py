@@ -1,6 +1,4 @@
 from pages.radio_button import RadioButton
-import pytest
-from pages.base_page import BasePage
 link = 'https://demoqa.com/radio-button'
 
 class TestRadioButton:

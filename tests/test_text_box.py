@@ -1,6 +1,6 @@
 from pages.text_box import TextBox
 import pytest
-from pages.base_page import BasePage
+
 class TestTextBox:
     def test_text_box_is_all_elements_present(self,page):
         text_box = TextBox(page)
