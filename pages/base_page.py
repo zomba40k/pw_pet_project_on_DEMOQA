@@ -3,6 +3,10 @@ class BasePage():
     def __init__(self, page: Page):
         self.page = page
 
+
+    def open(self, link:str):
+        self.page.goto(link, wait_until="domcontentloaded", timeout=60000)
+
     def check_field_has_error(self, field_locator):
         class_list = field_locator.get_attribute("class")
         assert class_list is not None, "Атрибут class не найден"

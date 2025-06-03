@@ -13,8 +13,8 @@ class TextBox(BasePage):
         self.submit_button = page.locator("#submit")
         self.output = page.locator("#output")
 
-    def open(self):
-        self.page.goto('https://demoqa.com/text-box', wait_until="domcontentloaded", timeout=60000)
+    def open(self,link):
+        self.page.goto(link, wait_until="domcontentloaded", timeout=60000)
 
     def is_all_elements_present(self):
         expect(self.name_input).to_be_visible()
