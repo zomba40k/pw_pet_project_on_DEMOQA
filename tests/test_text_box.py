@@ -6,6 +6,7 @@ class TestTextBox:
         text_box = TextBox(page)
         text_box.open('https://demoqa.com/text-box')
         text_box.is_all_elements_present()
+
     @pytest.mark.smoke
     def test_submit_form(self,page):
         text_box = TextBox(page)
@@ -18,7 +19,6 @@ class TestTextBox:
         text_box.open('https://demoqa.com/text-box')
         name, email, address, perm_address = text_box.submit_form_custom("email", "zhopa228@gmail.com")
         text_box.check_success_message(name, email, address, perm_address)
-
 
     @pytest.mark.smoke
     def test_submit_form_invalid_email(self,page):

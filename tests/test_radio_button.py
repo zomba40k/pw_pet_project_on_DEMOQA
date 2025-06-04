@@ -3,6 +3,14 @@ link = 'https://demoqa.com/radio-button'
 
 class TestRadioButton:
 
+    def test_logo(self,page):
+        radio = RadioButton(page)
+        radio.open(link)
+        radio.check_page('radio-button')
+        radio.click_logo()
+
+        radio.check_page()
+
     def test_yes_button(self,page):
         radiobutton = RadioButton(page)
         radiobutton.open(link)
