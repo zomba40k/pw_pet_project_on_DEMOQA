@@ -1,6 +1,6 @@
 from pages.text_box import TextBox
 import pytest
-link = "https://demoqa.com/elements"
+link = "https://demoqa.com/text-box"
 class TestTextBox:
     def test_list_collapse(self,page):
         text_box = TextBox(page)
