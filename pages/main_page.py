@@ -12,8 +12,6 @@ class MainPage(BasePage):
         self.cards =  page.locator(".card.mt-4.top-card")
 
     def click_cards(self, name:str=None):
-
-
         if name == 'elements':
             self.cards.nth(0).click()
 
@@ -28,9 +26,14 @@ class MainPage(BasePage):
 
         elif name == 'interactions':
             self.cards.nth(4).click()
+        elif name == 'books':
+            self.cards.nth(5).click()
 
         elif name == None:
             self.cards.nth(0).click()
+
+        else:
+            print('Name is not defined')
 
     def is_banner_present(self):
         self.is_element_present(self.banner)

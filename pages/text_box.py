@@ -13,9 +13,6 @@ class TextBox(BasePage):
         self.submit_button = page.locator("#submit")
         self.output = page.locator("#output")
 
-    def open(self,link):
-        self.page.goto(link, wait_until="domcontentloaded", timeout=60000)
-
     def is_all_elements_present(self):
         expect(self.name_input).to_be_visible()
         expect(self.email_input).to_be_visible()

@@ -7,7 +7,8 @@ card_handle_pairs = [
     ('forms', 'forms'),
     ('alerts', 'alertsWindows'),
     ('widgets', 'widgets'),
-    ('interactions', 'interaction')
+    ('interactions', 'interaction'),
+    ('books','books')
 ]
 link = 'https://demoqa.com/'
 class TestMainPage:
@@ -20,7 +21,9 @@ class TestMainPage:
         page.check_page(handle)
 
 
+
     def test_banner_present(self,page):
         page = MainPage(page)
         page.open(link)
         page.is_banner_present()
+
