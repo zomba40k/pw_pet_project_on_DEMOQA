@@ -66,3 +66,6 @@ class BasePage():
 
         item.click()
 
+    def click(self,locator):
+        locator.click()
+
