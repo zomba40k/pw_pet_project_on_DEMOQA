@@ -1,7 +1,9 @@
-from playwright.sync_api import Page, expect
 from faker import Faker
+from playwright.sync_api import Page, expect
+
 fake = Faker()
 from pages.base_page import BasePage
+
 
 class TextBox(BasePage):
     def __init__(self, page: Page):
@@ -36,7 +38,7 @@ class TextBox(BasePage):
     def success_message_doesnt_appear(self):
         expect(self.output).not_to_be_visible()
 
-    def check_success_message(self,name, email, address, perm_address):
+    def check_success_message(self, name, email, address, perm_address):
         self.page.wait_for_selector("#output", timeout=10000)
         expect(self.output).to_be_visible(timeout=10000)
         expect(self.output.locator("#name")).to_contain_text(name)
@@ -44,8 +46,8 @@ class TextBox(BasePage):
         expect(self.output.locator("#currentAddress")).to_contain_text(address)
         expect(self.output.locator("#permanentAddress")).to_contain_text(perm_address)
 
-    #Отправка формы со своим значением
-    def submit_form_custom(self,field:str,custom_value:str):
+    # Отправка формы со своим значением
+    def submit_form_custom(self, field: str, custom_value: str):
         fake = Faker()
         # Сначала сгенерим значения
         name = fake.first_name()
@@ -73,4 +75,3 @@ class TextBox(BasePage):
         self.submit_button.click()
 
         return name, email, address, perm_address
-

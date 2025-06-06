@@ -1,15 +1,18 @@
-from pages.links_page import LinksPage
 import pytest
 
+from pages.links_page import LinksPage
+
 link = 'https://demoqa.com/links'
+
+
 class TestLinksPage:
 
-    def test_home_link(self,page):
+    def test_home_link(self, page):
         page = LinksPage(page)
         page.open(link)
         page.check_home_link(page.home_link)
 
-    def test_home_link2(self,page):
+    def test_home_link2(self, page):
         page = LinksPage(page)
         page.open(link)
         page.check_home_link(page.home_link2)
@@ -25,7 +28,7 @@ class TestLinksPage:
             ("forbidden_link", 403, "Forbidden", "forbidden"),
             ("not_found_link", 404, "Not Found", "invalid-url"),
         ])
-    def test_api_links(self,page, link_attr, status_code, status_text, endpoint):
+    def test_api_links(self, page, link_attr, status_code, status_text, endpoint):
         page = LinksPage(page)
         page.open("https://demoqa.com/links")
 

@@ -1,6 +1,7 @@
 import pytest
 from playwright.sync_api import sync_playwright
 
+
 @pytest.fixture(scope="module")
 def page():
     with sync_playwright() as p:
@@ -11,4 +12,3 @@ def page():
         page.close()
         context.close()
         browser.close()
-

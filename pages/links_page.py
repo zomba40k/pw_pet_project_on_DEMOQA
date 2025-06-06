@@ -1,5 +1,6 @@
-from playwright.sync_api import Page, expect
 from faker import Faker
+from playwright.sync_api import Page
+
 fake = Faker()
 from pages.base_page import BasePage
 
@@ -19,17 +20,15 @@ class LinksPage(BasePage):
         self.not_found_link = self.page.locator('#invalid-url')
         self.link_response = self.page.locator('#linkResponse')
 
-
-    def check_home_link(self,element):
-
+    def check_home_link(self, element):
         with self.page.context.expect_page() as new_tab:
             element.click()
 
-        new_tab =  new_tab.value
+        new_tab = new_tab.value
 
         assert new_tab.url == 'https://demoqa.com/'
 
-    def check_api_respone(self, element,status_code:int,status_message:str,endpoint:str):
+    def check_api_respone(self, element, status_code: int, status_message: str, endpoint: str):
         with self.page.expect_response(f'**/{endpoint}') as response_info:
             element.click()
 

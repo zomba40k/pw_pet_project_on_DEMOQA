@@ -1,7 +1,9 @@
-from playwright.sync_api import Page, expect
 from faker import Faker
+from playwright.sync_api import Page, expect
+
 fake = Faker()
 from pages.base_page import BasePage
+
 
 class RadioButton(BasePage):
     def __init__(self, page: Page):
@@ -11,17 +13,12 @@ class RadioButton(BasePage):
         self.impressive_button = page.locator('#impressiveRadio')
         self.succes_message = page.locator('.text-success')
 
-
-    def click_radio(self,name):
+    def click_radio(self, name):
         self.page.locator(f"label[for='{name}Radio']").click()
 
-    def check_succes_message(self,name:str):
+    def check_succes_message(self, name: str):
         result = self.page.locator(".text-success")
         expect(result).to_have_text(name)
 
-
     def check_no(self):
         expect(self.no_button).to_be_disabled()
-
-
-

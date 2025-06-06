@@ -1,7 +1,10 @@
-from playwright.sync_api import Page, expect, sync_playwright
 from faker import Faker
+from playwright.sync_api import Page, expect
+
 fake = Faker()
 from pages.base_page import BasePage
+
+
 class ButtonsPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
@@ -11,6 +14,7 @@ class ButtonsPage(BasePage):
         self.db_click_msg = self.page.locator("#doubleClickMessage")
         self.rgt_click_msg = self.page.locator("#rightClickMessage")
         self.lft_click_msg = self.page.locator('#dynamicClickMessage')
+
     def check_db_click(self):
         self.db_click_btn.dblclick()
         expect(self.db_click_msg).to_contain_text('You have done a double click')

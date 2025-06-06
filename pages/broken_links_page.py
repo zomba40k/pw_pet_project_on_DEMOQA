@@ -1,18 +1,21 @@
+from playwright.sync_api import Page, expect
+
 from pages.base_page import BasePage
-from playwright.sync_api import Page, expect, sync_playwright
+
 
 class BrokenLinksPage(BasePage):
-    def __init__(self,page: Page):
+    def __init__(self, page: Page):
         super().__init__(page)
         self.valid_image = self.page.locator("p:has-text('Valid image') + img")
         self.broken_image = self.page.locator("p:has-text('Broken image') + img")
         self.valid_link = self.page.get_by_text('Click Here for Valid Link')
         self.broken_link = self.page.get_by_text('Click Here for Broken Link')
 
-    def is_image_valid(self,locator):
+    def is_image_valid(self, locator):
         expect(locator).to_be_visible()
-        assert   locator.evaluate('''el => !el.complete || el.naturalWidth > 0'''), 'Image broken'
-    def is_image_not_broken(self,locator):
+        assert locator.evaluate('''el => !el.complete || el.naturalWidth > 0'''), 'Image broken'
+
+    def is_image_not_broken(self, locator):
         expect(locator).to_be_visible()
         assert locator.evaluate('''el => !el.complete || el.naturalWidth == 0'''), 'Image not broken'
 
@@ -23,7 +26,6 @@ class BrokenLinksPage(BasePage):
     def check_broken_link(self):
         status_code = None
         url = 'http://the-internet.herokuapp.com/status_codes/500'
-
 
         def handle_response(response):
             nonlocal status_code
@@ -37,4 +39,3 @@ class BrokenLinksPage(BasePage):
         assert status_code is not None, 'Failed to capture response for the broken link'
         assert status_code == 500, f'Expected 500 but got {status_code}'
         assert self.page.url == url, f'Expected {url} but got {self.page.url}'
-

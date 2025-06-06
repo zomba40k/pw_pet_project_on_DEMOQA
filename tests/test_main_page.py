@@ -1,6 +1,6 @@
-from pages.main_page import MainPage
-from pages.check_box import CheckBox
 import pytest
+
+from pages.main_page import MainPage
 
 card_handle_pairs = [
     ('elements', 'elements'),
@@ -8,22 +8,21 @@ card_handle_pairs = [
     ('alerts', 'alertsWindows'),
     ('widgets', 'widgets'),
     ('interactions', 'interaction'),
-    ('books','books')
+    ('books', 'books')
 ]
 link = 'https://demoqa.com/'
+
+
 class TestMainPage:
 
-    @pytest.mark.parametrize('card,handle',card_handle_pairs)
-    def test_click_cards(self,page,card, handle):
+    @pytest.mark.parametrize('card,handle', card_handle_pairs)
+    def test_click_cards(self, page, card, handle):
         page = MainPage(page)
         page.open(link)
         page.click_cards(card)
         page.check_page(handle)
 
-
-
-    def test_banner_present(self,page):
+    def test_banner_present(self, page):
         page = MainPage(page)
         page.open(link)
         page.is_banner_present()
-

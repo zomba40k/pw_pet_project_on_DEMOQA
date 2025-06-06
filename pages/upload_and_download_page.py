@@ -1,7 +1,10 @@
-from pages.base_page import BasePage
-from playwright.sync_api import expect, Page
 import os
 from pathlib import Path
+
+from playwright.sync_api import expect, Page
+
+from pages.base_page import BasePage
+
 
 class UploadAndDownloadPage(BasePage):
     def __init__(self, page: Page):
@@ -10,8 +13,7 @@ class UploadAndDownloadPage(BasePage):
         self.upload_input = self.page.locator('#uploadFile')
         self.uploaded_path = self.page.locator('#uploadedFilePath')
 
-
-    def upload(self,file:str='test_data/testfile.txt'):
+    def upload(self, file: str = 'test_data/testfile.txt'):
         filename = os.path.basename(file)
 
         self.upload_input.set_input_files(file)
@@ -26,6 +28,6 @@ class UploadAndDownloadPage(BasePage):
         download.save_as(download_path)
         return download_path
 
-    def is_downloaded(self,file_path:Path):
+    def is_downloaded(self, file_path: Path):
         assert file_path.exists(), f"Файл {file_path} не существует"
         assert file_path.stat().st_size > 0, f"Файл {file_path} пустой"

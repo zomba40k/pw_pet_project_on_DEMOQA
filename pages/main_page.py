@@ -1,5 +1,6 @@
-from playwright.sync_api import Page, expect
 from faker import Faker
+from playwright.sync_api import Page
+
 fake = Faker()
 from pages.base_page import BasePage
 
@@ -9,9 +10,9 @@ class MainPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
         self.banner = page.locator('div.home-banner > a')
-        self.cards =  page.locator(".card.mt-4.top-card")
+        self.cards = page.locator(".card.mt-4.top-card")
 
-    def click_cards(self, name:str=None):
+    def click_cards(self, name: str = None):
         if name == 'elements':
             self.cards.nth(0).click()
 

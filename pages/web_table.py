@@ -1,7 +1,9 @@
-from playwright.sync_api import Page, expect
-from faker import Faker
-from pages.base_page import BasePage
 import random
+
+from faker import Faker
+from playwright.sync_api import Page, expect
+
+from pages.base_page import BasePage
 
 
 def dept_generator():
@@ -9,6 +11,7 @@ def dept_generator():
         job = Faker().job()
         if len(job) <= 25:
             return job
+
 
 class WebTable(BasePage):
     def __init__(self, page: Page):
@@ -66,7 +69,7 @@ class WebTable(BasePage):
 
         return first_name, last_name, email, age, salary, department
 
-    def send_custom_reg_form(self,**overrides):
+    def send_custom_reg_form(self, **overrides):
         fake = Faker()
         data = {
             "first_name": fake.first_name(),
@@ -79,7 +82,6 @@ class WebTable(BasePage):
         }
         # Переопределяем значениями из параметров
         data.update(overrides)
-
 
         self.first_name.fill(data['first_name'])
         self.last_name.fill(data['last_name'])
@@ -96,16 +98,16 @@ class WebTable(BasePage):
     def check_table_is_empty(self):
         expect(self.empty_table_message).to_be_visible()
 
-    def search(self,data:str):
+    def search(self, data: str):
         expect(self.search_box).to_be_visible()
         self.search_box.fill(data)
 
-    def edit_click  (self,id:str):
+    def edit_click(self, id: str):
         edit = self.page.locator(f'#edit-record-{id}')
         expect(edit).to_be_visible()
         edit.click()
 
-    def edit_row_by_text(self,name:str):
+    def edit_row_by_text(self, name: str):
         rows = self.page.locator(".rt-tr-group")
         count = rows.count()
         for i in range(count):
@@ -116,7 +118,7 @@ class WebTable(BasePage):
                 expect(edit_btn).to_be_visible()
                 edit_btn.click()
 
-    def delete_row_by_text(self,name:str):
+    def delete_row_by_text(self, name: str):
         rows = self.page.locator(".rt-tr-group")
         count = rows.count()
         for i in range(count):
@@ -127,7 +129,7 @@ class WebTable(BasePage):
                 expect(delete_btn).to_be_visible()
                 delete_btn.click()
 
-    def check_data_deleted(self,row_data: list[str]):
+    def check_data_deleted(self, row_data: list[str]):
         rows = self.page.locator(".rt-tr-group")
         count = rows.count()
 
@@ -138,5 +140,4 @@ class WebTable(BasePage):
                 if value in text:
                     found = False
                     break
-            assert  found, f"Значение '{value}'  найдено в строке таблицы"
-
+            assert found, f"Значение '{value}'  найдено в строке таблицы"
