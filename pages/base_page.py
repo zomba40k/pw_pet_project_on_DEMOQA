@@ -10,6 +10,7 @@ class BasePage():
         self.right_banner_img = page.locator("#RightSide_Advertisement  img")
 
     def open(self, link: str, ):
+        self.page.route("**/*stats.g.doubleclick.net/**", lambda route: route.abort())
         self.page.goto(link, wait_until="domcontentloaded", timeout=60000)
 
     def check_field_has_error(self, field_locator):
