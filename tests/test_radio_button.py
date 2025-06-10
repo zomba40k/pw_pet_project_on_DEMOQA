@@ -1,4 +1,4 @@
-from pages.radio_button import RadioButton
+from pages.Elements.radio_button import RadioButton
 
 link = 'https://demoqa.com/radio-button'
 

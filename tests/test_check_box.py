@@ -1,4 +1,4 @@
-from pages.check_box import CheckBox
+from pages.Elements.check_box import CheckBox
 
 link = 'https://demoqa.com/checkbox'
 

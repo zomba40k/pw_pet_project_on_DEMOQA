@@ -3,7 +3,7 @@ import random
 from faker import Faker
 from playwright.sync_api import Page, expect
 
-from pages.base_page import BasePage
+from pages.Elements.base_page import BasePage
 
 
 def dept_generator():

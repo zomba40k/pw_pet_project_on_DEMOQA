@@ -3,7 +3,7 @@ from pathlib import Path
 
 from playwright.sync_api import expect, Page
 
-from pages.base_page import BasePage
+from pages.Elements.base_page import BasePage
 
 
 class UploadAndDownloadPage(BasePage):

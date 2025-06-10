@@ -1,6 +1,6 @@
 import pytest
 
-from pages.links_page import LinksPage
+from pages.Elements.links_page import LinksPage
 
 link = 'https://demoqa.com/links'
 

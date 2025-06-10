@@ -1,4 +1,4 @@
-from pages.upload_and_download_page import UploadAndDownloadPage
+from pages.Elements.upload_and_download_page import UploadAndDownloadPage
 
 link = 'https://demoqa.com/upload-download'
 

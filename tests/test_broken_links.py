@@ -1,4 +1,4 @@
-from pages.broken_links_page import BrokenLinksPage
+from pages.Elements.broken_links_page import BrokenLinksPage
 
 link = 'https://demoqa.com/broken'
 

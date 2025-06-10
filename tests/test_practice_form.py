@@ -1,4 +1,4 @@
-from pages.practice_form_page import PracticeFormPage
+from pages.Forms.practice_form_page import PracticeFormPage
 
 
 link = 'https://demoqa.com/automation-practice-form'

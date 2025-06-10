@@ -1,6 +1,6 @@
 import pytest
 
-from pages.buttons_page import ButtonsPage
+from pages.Elements.buttons_page import ButtonsPage
 
 link = 'https://demoqa.com/buttons'
 

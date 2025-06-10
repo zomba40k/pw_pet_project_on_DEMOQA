@@ -1,4 +1,4 @@
-from pages.browser_windows_page import BrowserWindowsPage
+from pages.Alerts_Frame_Windows.browser_windows_page import BrowserWindowsPage
 
 link = 'https://demoqa.com/browser-windows'
 class TestBrowserWindowsPage:

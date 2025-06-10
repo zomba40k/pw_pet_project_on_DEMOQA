@@ -1,6 +1,6 @@
 import pytest
 
-from pages.text_box import TextBox
+from pages.Elements.text_box import TextBox
 
 link = "https://demoqa.com/text-box"
 

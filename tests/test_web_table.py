@@ -1,6 +1,6 @@
 import pytest
 
-from pages.web_table import WebTable
+from pages.Elements.web_table import WebTable
 
 link = 'https://demoqa.com/webtables'
 

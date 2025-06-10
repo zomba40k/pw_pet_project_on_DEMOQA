@@ -1,4 +1,4 @@
-from pages.dynamic_properties_page import DynamicPropertiesPage
+from pages.Elements.dynamic_properties_page import DynamicPropertiesPage
 
 link = 'https://demoqa.com/dynamic-properties'
 class TestDynamicProperties:
