@@ -2,7 +2,7 @@ from faker import Faker
 from playwright.sync_api import Page, expect
 
 fake = Faker()
-from pages.Elements.base_page import BasePage
+from pages.base_page import BasePage
 
 
 class TextBox(BasePage):

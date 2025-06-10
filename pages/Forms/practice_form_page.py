@@ -1,7 +1,7 @@
 import os
 from faker import Faker
 from faker.providers import phone_number
-from pages.Elements.base_page import BasePage
+from pages.base_page import BasePage
 from playwright.sync_api import Page, expect
 import random
 

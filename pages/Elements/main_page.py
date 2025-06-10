@@ -2,7 +2,7 @@ from faker import Faker
 from playwright.sync_api import Page
 
 fake = Faker()
-from pages.Elements.base_page import BasePage
+from pages.base_page import BasePage
 
 
 class MainPage(BasePage):
