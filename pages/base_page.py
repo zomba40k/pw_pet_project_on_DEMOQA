@@ -62,7 +62,7 @@ class BasePage():
         if not item.is_visible():
             # Раскрываем секцию, внутри которой находится нужный пункт
             section = self.page.locator(f".element-group:has-text('{name}')")
-            section.locator(".header").click()
+            section.locator(".group-header").click()
 
         item.click()
 

@@ -29,7 +29,7 @@ class TestTextBox:
     def test_select_from_list(self, page):
         text_box = TextBox(page)
         text_box.open(link)
-        text_box.select_from_sidebar()
+        text_box.select_from_sidebar('Alerts')
 
     @pytest.mark.smoke
     def test_submit_form(self, page):
