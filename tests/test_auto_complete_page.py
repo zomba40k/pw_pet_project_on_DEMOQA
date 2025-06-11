@@ -8,6 +8,8 @@ class TestAutoCompletePage:
         color.open(link)
         selected = color.check_color_choice('a')
         color.check_multiple_colors_added(selected)
+        color.delete_color()
+        color.is_color_deleted(selected)
 
 
     def test_single_color(self,page):
