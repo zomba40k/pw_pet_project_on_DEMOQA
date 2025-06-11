@@ -5,10 +5,6 @@ class FramesPage(BasePage):
     def __init__(self, page):
         super().__init__(page)
 
-
-
-        self.frame2 = self.page.frame(name = 'frame2')
-
     def check_frame1(self):
         self.page.locator('#frame1').wait_for(state='attached')
         frame1 = None
