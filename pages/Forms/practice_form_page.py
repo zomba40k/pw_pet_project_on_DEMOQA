@@ -86,7 +86,7 @@ class PracticeFormPage(BasePage):
         self.select_hobby()
         self.upload()
         self.select_state()
-        #self.select_city()
+        self.select_city()
 
 
 
