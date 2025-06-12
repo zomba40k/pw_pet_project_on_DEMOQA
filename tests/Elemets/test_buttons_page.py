@@ -5,6 +5,7 @@ from pages.Elements.buttons_page import ButtonsPage
 link = 'https://demoqa.com/buttons'
 
 
+@pytest.mark.Elements
 class TestButtonsPage:
 
     def test_dbl_click(self, page):

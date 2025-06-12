@@ -1,5 +1,5 @@
 from playwright.sync_api import Page, expect
-
+import pytest
 
 class BasePage():
     def __init__(self, page: Page):
@@ -11,12 +11,18 @@ class BasePage():
 
     def open(self, link: str, ):
         self.page.route("**/*stats.g.doubleclick.net/**", lambda route: route.abort())
+
+        def handle_response(response):
+            if response.status == 502:
+                pytest.xfail(f"Page {link} returned 502 Bad Gateway")
+
+        self.page.on("response", handle_response)
+
         self.page.goto(link, wait_until="domcontentloaded", timeout=60000)
 
     def check_field_has_error(self, field_locator):
         is_valid = field_locator.evaluate("el => el.checkValidity()")
         assert is_valid is False, "Ожидалось, что поле невалидно, но оно прошло валидацию"
-
 
     def is_element_present(self, element):
         try:

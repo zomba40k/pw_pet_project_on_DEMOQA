@@ -5,6 +5,7 @@ from pages.Elements.web_table import WebTable
 link = 'https://demoqa.com/webtables'
 
 
+@pytest.mark.Elements
 class TestWebTable:
 
     def test_form_opens(self, page):

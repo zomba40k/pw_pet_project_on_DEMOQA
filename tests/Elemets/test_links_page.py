@@ -5,6 +5,7 @@ from pages.Elements.links_page import LinksPage
 link = 'https://demoqa.com/links'
 
 
+@pytest.mark.Elements
 class TestLinksPage:
 
     def test_home_link(self, page):

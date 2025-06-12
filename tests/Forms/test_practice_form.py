@@ -1,11 +1,13 @@
-from pages.Forms.practice_form_page import PracticeFormPage
 import pytest
 
+from pages.Forms.practice_form_page import PracticeFormPage
 
 link = 'https://demoqa.com/automation-practice-form'
+
+
 class TestPracticeFormPage:
 
-    def test_form_valid(self,page):
+    def test_form_valid(self, page):
         form = PracticeFormPage(page)
         form.open(link)
         form.fill_fields()
@@ -40,7 +42,6 @@ class TestPracticeFormPage:
         form.page.wait_for_timeout(200)
         assert not form.is_modal_visible(), 'Модальное окно не закрылось'
 
-
     @pytest.mark.parametrize(
         "invalid_data, error_field",
         [
@@ -50,7 +51,7 @@ class TestPracticeFormPage:
             ({"gender": None}, "gender"),
         ]
     )
-    def test_invalid_field(self,page, invalid_data, error_field):
+    def test_invalid_field(self, page, invalid_data, error_field):
         form = PracticeFormPage(page)
         form.open(link)
 
@@ -60,4 +61,3 @@ class TestPracticeFormPage:
         form.check_field_has_error(field)
 
         assert not form.is_modal_visible(), 'Модальное окно с данными появилось, хотя поля не прошли валидацию'
-

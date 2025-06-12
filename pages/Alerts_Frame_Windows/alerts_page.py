@@ -1,6 +1,9 @@
-from pages.base_page import BasePage
-from playwright.sync_api import Page, expect
 from faker import Faker
+from playwright.sync_api import Page, expect
+
+from pages.base_page import BasePage
+
+
 class AlertsPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
@@ -32,13 +35,12 @@ class AlertsPage(BasePage):
         dialog = dialog_event.value
         alert_text = dialog.message
 
-
-        assert alert_text == "You clicked a button", (
-            f'Ожидался текст "This alert appeared after 5 seconds"", получено: "{alert_text}"'
+        assert alert_text == "This alert appeared after 5 seconds", (
+            f'Ожидался текст "This alert appeared after 5 seconds", получено: "{alert_text}"'
         )
         dialog.dismiss()
 
-    def click_and_check_confirm_alert_btn(self,option:bool=True):
+    def click_and_check_confirm_alert_btn(self, option: bool = True):
         alert_message = None
 
         def handle_alert(dialog):
@@ -46,7 +48,7 @@ class AlertsPage(BasePage):
             nonlocal alert_message
             alert_message = dialog.message
             if option:
-              dialog.accept()
+                dialog.accept()
             else:
                 dialog.dismiss()
             print(alert_message)
@@ -63,6 +65,7 @@ class AlertsPage(BasePage):
         fake = Faker()
         alert_message = None
         word = fake.word()
+
         def handle_alert(dialog):
             nonlocal alert_message
             alert_message = dialog.message

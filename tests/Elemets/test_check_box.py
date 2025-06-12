@@ -1,8 +1,11 @@
+import pytest
+
 from pages.Elements.check_box import CheckBox
 
 link = 'https://demoqa.com/checkbox'
 
 
+@pytest.mark.Elements
 class TestCheckBox:
 
     def test_expand_all_button(self, page):

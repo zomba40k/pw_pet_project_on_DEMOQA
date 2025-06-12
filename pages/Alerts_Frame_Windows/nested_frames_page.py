@@ -1,11 +1,11 @@
-from pages.base_page import BasePage
 from playwright.sync_api import expect
+
+from pages.base_page import BasePage
 
 
 class NestedFramesPage(BasePage):
     def __init__(self, page):
         super().__init__(page)
-
 
     def check_parent_frame(self):
         self.page.locator('#frame1').wait_for(state='attached')
@@ -17,11 +17,11 @@ class NestedFramesPage(BasePage):
 
             self.page.wait_for_timeout(500)
 
-        assert(parent_frame is not None), 'Parent frame not found'
+        assert (parent_frame is not None), 'Parent frame not found'
         expect(parent_frame.locator('body')).to_contain_text('Parent frame')
         return parent_frame
 
-    def check_child_frame(self,parent_frame):
+    def check_child_frame(self, parent_frame):
         parent_frame.locator('iframe').wait_for(state='attached')
 
         child_frame = None
@@ -33,5 +33,5 @@ class NestedFramesPage(BasePage):
                 break
             self.page.wait_for_timeout(500)
 
-        assert(child_frame is not None), 'Child frame not found'
+        assert (child_frame is not None), 'Child frame not found'
         expect(child_frame.locator('p')).to_contain_text('Child Iframe')

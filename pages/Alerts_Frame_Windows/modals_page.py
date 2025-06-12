@@ -1,5 +1,7 @@
-from pages.base_page import BasePage
 from playwright.sync_api import expect
+
+from pages.base_page import BasePage
+
 
 class ModalsPage(BasePage):
     def __init__(self, page):
@@ -18,6 +20,7 @@ class ModalsPage(BasePage):
         expect(self.modal_header).to_contain_text('Small Modal')
         expect(self.modal_body).to_contain_text('This is a small modal. It has very less content')
         self.close_btn.click()
+
     def check_large_modal(self):
         self.large_modal_btn.click()
         expect(self.modal).to_be_visible()
@@ -25,4 +28,3 @@ class ModalsPage(BasePage):
         expect(self.modal_header).to_contain_text('Large Modal')
         expect(self.modal_body).to_contain_text('Lorem Ipsum')
         self.close_btn.click()
-

@@ -1,14 +1,18 @@
 import os
+import random
+
 from faker import Faker
 from faker.providers import phone_number
-from pages.base_page import BasePage
 from playwright.sync_api import Page, expect
-import random
+
+from pages.base_page import BasePage
 
 fake = Faker()
 fake.add_provider(phone_number)
+
+
 class PracticeFormPage(BasePage):
-    def __init__(self,page: Page):
+    def __init__(self, page: Page):
         super().__init__(page)
         self.first_name = self.page.locator('#firstName')
         self.last_name = self.page.locator('#lastName')
@@ -45,7 +49,7 @@ class PracticeFormPage(BasePage):
         return name
 
     def fill_last_name(self):
-        surname  = fake.last_name()
+        surname = fake.last_name()
         self.last_name.fill(surname)
         return surname
 
@@ -64,7 +68,7 @@ class PracticeFormPage(BasePage):
         self.phone.fill(number)
         return number
 
-    def select_gender(self,gender:str='Male'):
+    def select_gender(self, gender: str = 'Male'):
         self.page.locator(f'label:has-text("{gender}")').first.click()
         return self.page.locator(f'label:has-text("{gender}")').first.text_content()
 
@@ -75,14 +79,14 @@ class PracticeFormPage(BasePage):
         self.page.locator(f".react-datepicker__day--0{int(day):02d}:not(.react-datepicker__day--outside-month)").click()
         return day, month, year
 
-    def select_subject(self,subject:str='Math'):
+    def select_subject(self, subject: str = 'Math'):
         self.subject_input.click()
         self.subject_input.fill(subject)
         self.page.locator(".subjects-auto-complete__option", has_text=subject).click()
         expect(self.page.locator('.subjects-auto-complete__multi-value__label', has_text=subject)).to_be_visible()
         return subject
 
-    def select_hobby(self,hobbies:list=['Sports']):
+    def select_hobby(self, hobbies: list = ['Sports']):
         for hobby in hobbies:
             check = self.page.locator(f'label:has-text("{hobby}")')
             check.click()
@@ -96,10 +100,10 @@ class PracticeFormPage(BasePage):
         expect(self.page.locator(f"span:has-text('{filename}')")).to_be_hidden()
         return filename
 
-    def select_state(self, state_name: str=None):
+    def select_state(self, state_name: str = None):
         if state_name is not None:
             self.state_input.fill(state_name)
-            state = self.page.locator('div[id^="react-select-3-option-"]',has_text=state_name)
+            state = self.page.locator('div[id^="react-select-3-option-"]', has_text=state_name)
 
         else:
             self.page.locator('#state').click()
@@ -206,4 +210,3 @@ class PracticeFormPage(BasePage):
 
     def close_modal(self):
         self.modal_close_btn.click()
-

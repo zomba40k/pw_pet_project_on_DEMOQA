@@ -1,13 +1,14 @@
-from pages.base_page import BasePage
 from playwright.sync_api import Page, expect
 
+from pages.base_page import BasePage
+
+
 class BrowserWindowsPage(BasePage):
-    def __init__(self, page:Page):
+    def __init__(self, page: Page):
         super().__init__(page)
         self.tab_btn = self.page.locator("#tabButton")
         self.window_btn = self.page.locator("#windowButton")
         self.message_window_btn = self.page.locator("#messageWindowButton")
-
 
     def click_tab_btn(self):
         with self.page.expect_popup() as popup_info:
@@ -31,4 +32,3 @@ class BrowserWindowsPage(BasePage):
 
         new_msg_window = popup_info.value
         expect(new_msg_window.locator('body')).to_contain_text('Knowledge increases by sharing but not by saving. ')
-

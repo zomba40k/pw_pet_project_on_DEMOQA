@@ -5,6 +5,7 @@ from pages.Elements.text_box import TextBox
 link = "https://demoqa.com/text-box"
 
 
+@pytest.mark.Elements
 class TestTextBox:
     def test_list_collapse(self, page):
         text_box = TextBox(page)

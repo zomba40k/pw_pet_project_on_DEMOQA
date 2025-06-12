@@ -1,8 +1,11 @@
+import pytest
+
 from pages.Elements.upload_and_download_page import UploadAndDownloadPage
 
 link = 'https://demoqa.com/upload-download'
 
 
+@pytest.mark.Elements
 class TestUploadAndDownload:
 
     def test_upload(self, page):

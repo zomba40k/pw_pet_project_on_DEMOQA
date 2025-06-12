@@ -1,8 +1,11 @@
+import pytest
+
 from pages.Elements.broken_links_page import BrokenLinksPage
 
 link = 'https://demoqa.com/broken'
 
 
+@pytest.mark.Elements
 class TestBrokenLinks:
 
     def test_valid_image(self, page):

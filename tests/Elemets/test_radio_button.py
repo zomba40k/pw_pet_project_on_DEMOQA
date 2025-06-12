@@ -1,8 +1,11 @@
+import pytest
+
 from pages.Elements.radio_button import RadioButton
 
 link = 'https://demoqa.com/radio-button'
 
 
+@pytest.mark.Elements
 class TestRadioButton:
 
     def test_logo(self, page):
