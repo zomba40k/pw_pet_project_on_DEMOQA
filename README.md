@@ -39,3 +39,6 @@
 
 - Для запуска всех тестов:
   `pytest`
+  
+## Чек-лист с проверками
+Для просмотра чек-листа с проверками перейдите по [ссылке](https://docs.google.com/spreadsheets/d/1qLVzIyZvB2_evSFlhEFmePSKPTvBv_a805ZzSr8LY64/edit?usp=sharing).
