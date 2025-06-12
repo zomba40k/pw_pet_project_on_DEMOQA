@@ -10,6 +10,7 @@ class AutoCompletePage(BasePage):
     def check_color_choice(self, text: str = 'Black', multiple: bool = True):
         input_field = self.mult_color_input if multiple else self.single_color_input
         input_field.fill(text)
+        self.check_is_any_colors(text)
 
         # Получаем все уникальные варианты, которые появились
         options = self.page.locator('.auto-complete__option', has_text=text)
@@ -49,3 +50,9 @@ class AutoCompletePage(BasePage):
         for colors in range(labels.count()):
             actual_colors.append(self.page.locator('.auto-complete__multi-value__label').nth(colors).text_content())
         assert actual_colors[-1] != expected_colors[-1], 'Color is not deleted'
+
+    def check_is_any_colors(self,text:str):
+        options = self.page.locator('.auto-complete__option')
+        for i in range(options.count()):
+            print(options.all_text_contents()[i])
+            assert (text.lower() in options.nth(i).text_content()) or(text.upper() in options.nth(i).text_content()), 'Wrong color hinted'

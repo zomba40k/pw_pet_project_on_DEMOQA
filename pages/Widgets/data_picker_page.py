@@ -25,8 +25,9 @@ class DataPickerPage(BasePage):
         :param month: Месяц (1-12)
         :param year: Год (например 2025)
         :param time: Время в формате 'HH:MM' (например '15:30')
-        :return: Возвращает выбранную дату в формате 'June 11, 2025 6:45 PM'
         :param locator: Локатор поля (например page.date_picker)
+        :return: Возвращает выбранную дату в формате 'June 11, 2025 6:45 PM'
+
         """
         locator.click()
 
