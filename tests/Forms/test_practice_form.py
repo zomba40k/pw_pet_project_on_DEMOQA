@@ -4,7 +4,7 @@ from pages.Forms.practice_form_page import PracticeFormPage
 
 link = 'https://demoqa.com/automation-practice-form'
 
-
+@pytest.mark.Forms
 class TestPracticeFormPage:
 
     def test_form_valid(self, page):

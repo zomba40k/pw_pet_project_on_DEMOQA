@@ -1,7 +1,9 @@
 from pages.Alerts_Frame_Windows.modals_page import ModalsPage
+import pytest
 
 link = 'https://demoqa.com/modal-dialogs'
 
+@pytest.mark.Alerts_Frame_Windows
 
 class TestModals:
 

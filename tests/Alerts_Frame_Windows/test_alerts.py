@@ -4,7 +4,7 @@ from pages.Alerts_Frame_Windows.alerts_page import AlertsPage
 
 link = 'https://demoqa.com/alerts'
 
-
+@pytest.mark.Alerts_Frame_Windows
 class TestAlerts():
 
     def test_alert_btn(self, page):

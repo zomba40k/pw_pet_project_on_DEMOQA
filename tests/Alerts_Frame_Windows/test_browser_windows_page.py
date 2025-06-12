@@ -1,8 +1,8 @@
 from pages.Alerts_Frame_Windows.browser_windows_page import BrowserWindowsPage
-
+import pytest
 link = 'https://demoqa.com/browser-windows'
 
-
+@pytest.mark.Alerts_Frame_Windows
 class TestBrowserWindowsPage:
 
     def test_new_tab(self, page):

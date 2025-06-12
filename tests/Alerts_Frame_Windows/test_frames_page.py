@@ -1,8 +1,10 @@
 from pages.Alerts_Frame_Windows.frames_page import FramesPage
+import pytest
+
 
 link = 'https://demoqa.com/frames'
 
-
+@pytest.mark.Alerts_Frame_Windows
 class TestFramesPage:
 
     def test_frame1(self, page):

@@ -13,3 +13,7 @@ class AcordianPage(BasePage):
             section = self.page.locator(f".card-header:has-text('{section_title}')")
             section.click()
         expect(text).to_be_visible()
+
+    def check_if_other_hidden(self):
+        locators = self.page.locator('.show')
+        assert locators.count() == 1, f'Должна быть раскрытой одна секция, раскрыто{locators.count()}'

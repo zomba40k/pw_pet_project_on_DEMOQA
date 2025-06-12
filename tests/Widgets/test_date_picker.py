@@ -1,7 +1,8 @@
 from pages.Widgets.data_picker_page import DataPickerPage
-
+import pytest
 link = 'https://demoqa.com/date-picker'
 
+@pytest.mark.Widgets
 
 class TestDatePickerPage:
 

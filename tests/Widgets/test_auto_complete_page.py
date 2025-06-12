@@ -1,7 +1,8 @@
 from pages.Widgets.auto_complete_page import AutoCompletePage
-
+import pytest
 link = 'https://demoqa.com/auto-complete'
 
+@pytest.mark.Widgets
 
 class TestAutoCompletePage:
 

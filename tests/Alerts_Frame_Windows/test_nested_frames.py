@@ -1,7 +1,9 @@
 from pages.Alerts_Frame_Windows.nested_frames_page import NestedFramesPage
+import pytest
 
 link = 'https://demoqa.com/nestedframes'
 
+@pytest.mark.Alerts_Frame_Windows
 
 class TestNestedFramesPage:
 
