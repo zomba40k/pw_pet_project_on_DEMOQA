@@ -14,9 +14,9 @@ class BasePage():
         self.page.goto(link, wait_until="domcontentloaded", timeout=60000)
 
     def check_field_has_error(self, field_locator):
-        class_list = field_locator.get_attribute("class")
-        assert class_list is not None, "Атрибут class не найден"
-        assert 'field-error' in class_list.split(), f"Ожидалось что класс имеет field-error, но получили: {class_list}"
+        is_valid = field_locator.evaluate("el => el.checkValidity()")
+        assert is_valid is False, "Ожидалось, что поле невалидно, но оно прошло валидацию"
+
 
     def is_element_present(self, element):
         try:
