@@ -14,6 +14,7 @@ class SliderPage(BasePage):
     def set_slider_by_drag(self,value:str = 'max'):
         """По причине невозможности расположения слайдера на конкретном значении на разных экранах,
          вынужден проверять возможность установки значения либо max, либо min"""
+        self.page.wait_for_timeout(200)
         box = self.slider.bounding_box()
         x_center = box['x']+box['width']/2
         y_center = box['y']+box['height']/2
