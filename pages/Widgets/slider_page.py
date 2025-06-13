@@ -27,8 +27,12 @@ class SliderPage(BasePage):
 
         self.page.mouse.up()
 
-    def set_slider_by_arrows(self,steps:int=10):
+    def set_slider_by_arrows(self,steps:int=10,isVertical :bool=False):
         self.slider.focus()
-        key = 'ArrowRight' if steps>0 else 'ArrowLeft'
+        if isVertical:
+            key = 'ArrowUp' if steps>0 else 'ArrowDown'
+        else:
+            key = 'ArrowRight' if steps>0 else 'ArrowLeft'
         for i in range(abs(steps)):
             self.page.keyboard.press(key)
+

@@ -14,12 +14,20 @@ class TestSliderPage:
         else:
            assert new==0, f'Слайдер не сдвинулся на необходимое значение, ожидалось 0, получил {new}'
 
-    @pytest.mark.parametrize('value',[10,-10])
-    def test_slide_by_arrows(self,page,value):
+    @pytest.mark.parametrize(
+        ("value", "is_vertical"),
+        [
+            (10, True),  # вертикально
+            (-10, False),  # горизонтально
+            (-10, True),  # вертикально
+            (10, False),  # горизонтально
+        ]
+    )
+    def test_slide_by_arrows(self,page,value,is_vertical):
         slider = SliderPage(page)
         slider.open(link)
         inital = slider.get_value()
-        slider.set_slider_by_arrows(value)
+        slider.set_slider_by_arrows(value,is_vertical)
         new = slider.get_value()
 
         assert new == inital+value, f'Слайдер не сдвинулся на необходимое значение, ожидалось {inital+value}, получил {new}'
