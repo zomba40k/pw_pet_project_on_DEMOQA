@@ -15,7 +15,7 @@ class TestDatePickerPage:
     def test_date_via_picker(self, page):
         page = DataPickerPage(page)
         page.open(link)
-        date = page.select_date_via_picker(12, 12, 2022, '19:30', locator=page.date_picker)
+        date = page.select_date_via_picker( page.date_picker,12, 12, 2022)
         page.check_date_is_right(date, page.date_picker)
 
     def test_date_time_via_field(self, page):
@@ -23,4 +23,9 @@ class TestDatePickerPage:
         page.open(link)
         date = page.fill_date(page.date_time_picker)
         page.check_date_is_right(date, page.date_time_picker)
-        page.page.wait_for_timeout(1000)
+
+    def test_date_time_via_picker(self, page):
+        page = DataPickerPage(page)
+        page.open(link)
+        date = page.select_date_via_picker( page.date_time_picker,12, 12, 2022, '12:30 PM',)
+        page.check_date_is_right(date, page.date_time_picker)
