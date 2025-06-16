@@ -74,3 +74,7 @@ class BasePage():
 
     def click(self, locator):
         locator.click()
+
+    def hover_over(self,element):
+        self.page.wait_for_timeout(200)
+        element.hover()
