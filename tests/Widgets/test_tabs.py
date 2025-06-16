@@ -2,6 +2,7 @@ from pages.Widgets.tabs_page import TabsPage
 import pytest
 
 link = 'https://demoqa.com/tabs'
+@pytest.mark.Widgets
 class TestTabsPage:
 
 

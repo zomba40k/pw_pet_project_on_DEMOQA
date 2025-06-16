@@ -2,6 +2,7 @@ from pages.Widgets.slider_page import SliderPage
 import pytest
 
 link = 'https://demoqa.com/slider'
+@pytest.mark.Widgets
 class TestSliderPage:
     @pytest.mark.parametrize('value',['max','min'])
     def test_slide_by_drag(self,page,value):

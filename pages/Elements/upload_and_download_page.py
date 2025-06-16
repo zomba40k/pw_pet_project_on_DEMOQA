@@ -20,7 +20,14 @@ class UploadAndDownloadPage(BasePage):
 
         expect(self.uploaded_path).to_contain_text(filename)
 
-    def download(self, target_dir: Path) -> Path:
+    def download(self, target_dir=None) -> Path:
+        # Если путь не передан — используем папку по умолчанию, например test_data в проекте
+        if target_dir is None:
+            target_dir = Path(__file__).parent.parent / "test_data"
+        # Если передали строку — превращаем в Path
+        if not isinstance(target_dir, Path):
+            target_dir = Path(target_dir)
+        target_dir.mkdir(parents=True, exist_ok=True)
         with self.page.expect_download() as download_info:
             self.download_btn.click()
         download = download_info.value

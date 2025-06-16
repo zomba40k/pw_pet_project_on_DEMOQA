@@ -1,6 +1,8 @@
 from pages.Widgets.progress_bar_page import ProgressBarPage
+import pytest
 
 link = 'https://demoqa.com/progress-bar'
+@pytest.mark.Widgets
 class TestProgressBar:
 
     def test_progres_bar(self,page):

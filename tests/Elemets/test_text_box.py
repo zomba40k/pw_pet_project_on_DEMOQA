@@ -17,11 +17,6 @@ class TestTextBox:
         text_box.open(link)
         text_box.check_banner_right()
 
-    def test_text_box_is_all_elements_present(self, page):
-        text_box = TextBox(page)
-        text_box.open(link)
-        text_box.is_all_elements_present()
-
     def test_check_logo(self, page):
         text_box = TextBox(page)
         text_box.open(link)

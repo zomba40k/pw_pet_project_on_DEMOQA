@@ -23,7 +23,7 @@ class TestBrokenLinks:
         broken_links.open(link)
         broken_links.check_valid_link()
 
-    def test_broken_linkk(self, page):
+    def test_broken_link(self, page):
         broken_links = BrokenLinksPage(page)
         broken_links.open(link)
         broken_links.check_broken_link()

@@ -1,5 +1,6 @@
 from playwright.sync_api import Page, expect
 import pytest
+from pathlib import Path
 
 class BasePage():
     def __init__(self, page: Page):
@@ -78,3 +79,12 @@ class BasePage():
     def hover_over(self,element):
         self.page.wait_for_timeout(200)
         element.hover()
+
+    def delete_file(self, file_path: Path):
+        if not isinstance(file_path, Path):
+            file_path = Path(file_path)
+        if file_path.exists() and file_path.is_file():
+            file_path.unlink()  # удаляет файл
+            print(f"Файл {file_path} удалён")
+        else:
+            print(f"Файл {file_path} не найден")

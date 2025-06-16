@@ -1,6 +1,7 @@
 import pytest
 from pages.Widgets.select_menu_page import SelectMenuPage
 link = 'https://demoqa.com/select-menu'
+@pytest.mark.Widgets
 class TestSelectMenuPage:
     def test_select_one_dropdown(self,page):
         select_page = SelectMenuPage(page)

@@ -16,6 +16,7 @@ class TestUploadAndDownload:
     def test_download(self, page, tmp_path):
         download_page = UploadAndDownloadPage(page)
         download_page.open(link)
-        file_path = download_page.download(target_dir=tmp_path)
+        file_path = download_page.download(target_dir='test_data')
 
         download_page.is_downloaded(file_path)
+        download_page.delete_file(file_path)

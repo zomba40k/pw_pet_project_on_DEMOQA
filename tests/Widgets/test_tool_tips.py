@@ -3,6 +3,7 @@ import pytest
 
 link = 'https://demoqa.com/tool-tips'
 #@pytest.mark.xfail(reason="Иногда два tooltip одновременно — баг демо-страницы")
+@pytest.mark.Widgets
 class TestToolTips:
 
     def test_btn(self,page):

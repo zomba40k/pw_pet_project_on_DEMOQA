@@ -1,6 +1,7 @@
 from pages.Widgets.menu_page import MenuPage
 
 link = 'https://demoqa.com/menu#'
+@pytest.mark.Widgets
 class TestMenuPage:
 
     def test_main_item_2(self,page):
