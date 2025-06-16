@@ -1,4 +1,5 @@
 from pages.Widgets.menu_page import MenuPage
+import pytest
 
 link = 'https://demoqa.com/menu#'
 @pytest.mark.Widgets
