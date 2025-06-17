@@ -6,7 +6,6 @@ link = 'https://demoqa.com/links'
 
 @allure.parent_suite("Тесты элементов")
 @allure.suite("Тесты ссылок")
-@allure.parent_suite("Тесты элементов")
 @pytest.mark.Elements
 class TestLinksPage:
     @allure.title("По клику на гиперссылку 'Home' открывается Home Page в новой вкладке")

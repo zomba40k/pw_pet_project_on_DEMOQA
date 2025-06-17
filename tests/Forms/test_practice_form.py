@@ -1,12 +1,16 @@
 import pytest
 
 from pages.Forms.practice_form_page import PracticeFormPage
+import allure
 
 link = 'https://demoqa.com/automation-practice-form'
 
+@allure.parent_suite("Тесты Forms")
+@allure.suite("Тесты Practice Form")
 @pytest.mark.Forms
 class TestPracticeFormPage:
 
+    @allure.title('Teсты ввода валидных данных во поля формы')
     def test_form_valid(self, page):
         form = PracticeFormPage(page)
         form.open(link)
@@ -52,6 +56,8 @@ class TestPracticeFormPage:
         ]
     )
     def test_invalid_field(self, page, invalid_data, error_field):
+        with allure.step(f'Тесты невалидных данных в поле {error_field}'):
+            allure.dynamic.title(f'Поле - {error_field} данные - {invalid_data[f'{error_field}']}')
         form = PracticeFormPage(page)
         form.open(link)
 
