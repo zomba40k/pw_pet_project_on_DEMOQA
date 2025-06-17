@@ -1,5 +1,4 @@
 from pages.base_page import BasePage
-from playwright.sync_api import expect
 
 class MenuPage(BasePage):
     def __init__(self, page):

@@ -16,7 +16,7 @@ class SelectMenuPage(BasePage):
         self.page.locator("div[id^='react-select']",has_text=partial_text).click()
 
     def expect_selected_value(self, field, expected):
-        selected = self.page.locator(f"[class*='singleValue']")
+        selected = self.page.locator("[class*='singleValue']")
         expect(selected).to_contain_text(expected)
 
     def select_old_style(self, value):

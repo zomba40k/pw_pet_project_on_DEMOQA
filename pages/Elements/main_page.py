@@ -1,9 +1,8 @@
 from faker import Faker
 from playwright.sync_api import Page
-
-fake = Faker()
 from pages.base_page import BasePage
 
+fake = Faker()
 
 class MainPage(BasePage):
 
@@ -30,7 +29,7 @@ class MainPage(BasePage):
         elif name == 'books':
             self.cards.nth(5).click()
 
-        elif name == None:
+        elif name is None:
             self.cards.nth(0).click()
 
         else:

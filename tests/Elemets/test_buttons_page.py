@@ -15,7 +15,7 @@ class TestButtonsPage:
         page.open(link)
         try:
             page.check_db_click()
-        except AssertionError as e:
+        except AssertionError:
             allure.attach(page.screenshot(), name="screenshot_dbl_click", attachment_type=allure.attachment_type.PNG)
             raise
 
@@ -25,7 +25,7 @@ class TestButtonsPage:
         page.open(link)
         try:
             page.check_rgt_click()
-        except AssertionError as e:
+        except AssertionError:
             allure.attach(page.screenshot(), name="screenshot_rgt_click", attachment_type=allure.attachment_type.PNG)
             raise
 
@@ -35,6 +35,6 @@ class TestButtonsPage:
         page.open(link)
         try:
             page.check_lft_click()
-        except AssertionError as e:
+        except AssertionError:
             allure.attach(page.screenshot(), name="screenshot_lft_click", attachment_type=allure.attachment_type.PNG)
             raise

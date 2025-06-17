@@ -1,10 +1,9 @@
 from faker import Faker
 from playwright.sync_api import Page, expect
-
-fake = Faker()
 from pages.base_page import BasePage
 import re
 
+fake = Faker()
 
 class CheckBox(BasePage):
     def __init__(self, page: Page):

@@ -1,9 +1,8 @@
 from faker import Faker
 from playwright.sync_api import Page
-
-fake = Faker()
 from pages.base_page import BasePage
 
+fake = Faker()
 
 class LinksPage(BasePage):
 

@@ -34,10 +34,9 @@ jobs:
           pip install -r requirements.txt
           playwright install --with-deps
 
-      - name: Run tests with Allure
+      - name: Run tests with Allure and xdist
         run: |
-          pytest --alluredir=allure-results
-        continue-on-error: true
+          pytest -n auto --alluredir=allure-results
 
       - name: Generate Allure report
         run: |
@@ -62,3 +61,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: allure-report
           publish_branch: gh-pages
+

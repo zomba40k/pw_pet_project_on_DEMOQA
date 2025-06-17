@@ -1,5 +1,4 @@
 from faker import Faker
-import datetime
 import calendar
 from pages.base_page import BasePage
 

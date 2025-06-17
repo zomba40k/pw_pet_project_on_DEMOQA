@@ -27,7 +27,7 @@ class BasePage():
         try:
             expect(element).to_be_visible()
         except AssertionError:
-            raise AssertionError(f'Element is not visible')
+            raise AssertionError('Element is not visible')
 
     def check_logo(self):
         expect(self.logo).to_be_visible()
@@ -36,7 +36,7 @@ class BasePage():
         self.logo.click()
 
     def check_page(self, name: str = None):
-        if name == None:
+        if name is None:
             assert self.page.url == 'https://demoqa.com/'
         else:
             assert self.page.url == f'https://demoqa.com/{name}'

@@ -38,7 +38,7 @@ class TestWebTable:
         ('', '', '')  # Полностью пустые значения
     ])
     def test_submit_invalid_form(self, page, email, age, salary):
-        with allure.step(f"Проверка невалидации формы"):
+        with allure.step("Проверка невалидации формы"):
             allure.dynamic.title(f"Тест тест с данными: email -  '{email} ' age - '{age}' salary - '{salary}')")
         page = WebTable(page)
         page.open(link)

@@ -1,5 +1,3 @@
-from allure_pytest.utils import allure_title
-
 from pages.Widgets.progress_bar_page import ProgressBarPage
 import pytest
 import allure
