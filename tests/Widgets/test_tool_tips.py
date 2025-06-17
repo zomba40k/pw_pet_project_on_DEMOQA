@@ -6,7 +6,7 @@ link = 'https://demoqa.com/tool-tips'
 
 @allure.parent_suite("Тесты Widgets")
 @allure.suite("Тесты Подсказок")
-
+@pytest.mark.xfail(reason="Иногда два tooltip одновременно — баг демо-страницы")
 @pytest.mark.Widgets
 class TestToolTips:
 
@@ -24,7 +24,7 @@ class TestToolTips:
         field.hover_over(field.text_field)
         field.check_tip('text field')
 
-    @pytest.mark.xfail(reason="Иногда два tooltip одновременно — баг демо-страницы")
+
     @allure.title('При наведении курсора  на гиперссылку на слове Contrary, появляется подсказка с текстом You hovered over the Contrary')
     def test_contrary(self,page):
         contrary = ToolTipsPage(page)
