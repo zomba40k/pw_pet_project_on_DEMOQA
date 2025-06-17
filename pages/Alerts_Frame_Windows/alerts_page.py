@@ -21,7 +21,6 @@ class AlertsPage(BasePage):
             nonlocal alert_message
             alert_message = dialog.message
             dialog.dismiss()
-            print(alert_message)
 
         self.page.once('dialog', handle_alert)
         self.alert_btn.click()
@@ -51,7 +50,6 @@ class AlertsPage(BasePage):
                 dialog.accept()
             else:
                 dialog.dismiss()
-            print(alert_message)
 
         self.page.once('dialog', handle_alert)
         self.confirm_alert_btn.click()
