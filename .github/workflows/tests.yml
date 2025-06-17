@@ -16,17 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-
-      - name: Install Allure CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y default-jre
-          wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
-          tar -zxvf allure-2.27.0.tgz
-          sudo mv allure-2.27.0 /opt/allure
-          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
-          allure --version
+          python-version: '3.11'  # Python 3.13 пока нестабилен для CI
 
       - name: Install dependencies
         run: |
@@ -37,7 +27,7 @@ jobs:
       - name: Run tests with Allure
         run: |
           pytest --alluredir=allure-results
-        continue-on-error: true
+        continue-on-error: true  # Важно: не прерываем, даже если тесты упали
 
       - name: Generate Allure report
         run: |
@@ -55,3 +45,11 @@ jobs:
           name: allure-report
           path: allure-report
 
+      - name: Deploy Allure report to GitHub Pages 🚀
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-report
+          publish_branch: gh-pages
+          force_orphan: true
