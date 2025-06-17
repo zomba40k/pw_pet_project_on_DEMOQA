@@ -12,14 +12,12 @@ class BasePage():
 
     def open(self, link: str, ):
         self.page.route("**/*stats.g.doubleclick.net/**", lambda route: route.abort())
-
         def handle_response(response):
             if response.status == 502:
                 pytest.xfail(f"Page {link} returned 502 Bad Gateway")
-
         self.page.on("response", handle_response)
-
         self.page.goto(link, wait_until="domcontentloaded", timeout=60000)
+        self.page.wait_for_timeout(300)
 
     def check_field_has_error(self, field_locator):
         is_valid = field_locator.evaluate("el => el.checkValidity()")
