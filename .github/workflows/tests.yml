@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'  # Python 3.13 пока нестабилен для CI
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -27,19 +27,28 @@ jobs:
       - name: Run tests with Allure
         run: |
           pytest --alluredir=allure-results
-        continue-on-error: true  # Важно: не прерываем, даже если тесты упали
+        continue-on-error: true
+
+      - name: Install Allure CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y default-jre
+          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.27.0.tgz
+          tar -zxvf allure-2.27.0.tgz
+          sudo mv allure-2.27.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
       - name: Generate Allure report
         run: |
           allure generate allure-results -o allure-report --clean
 
-      - name: Upload Allure results
+      - name: Upload Allure results (artifact)
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path: allure-results
 
-      - name: Upload Allure report
+      - name: Upload Allure report (artifact)
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
