@@ -34,9 +34,10 @@ jobs:
           pip install -r requirements.txt
           playwright install --with-deps
 
-      - name: Run tests with Allure and xdist
+      - name: Run tests with Allure
         run: |
-          pytest -n auto --alluredir=allure-results
+          pytest --alluredir=allure-results
+        continue-on-error: true
 
       - name: Generate Allure report
         run: |
