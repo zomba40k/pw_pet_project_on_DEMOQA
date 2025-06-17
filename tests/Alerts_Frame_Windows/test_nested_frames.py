@@ -4,7 +4,7 @@ import allure
 
 link = 'https://demoqa.com/nestedframes'
 
-@allure.parent_suite("Тесты алертов фреймов и окон")
+@allure.parent_suite("Тесты Alerts Frames and Windows")
 @allure.suite("Тесты родственных модальных окон")
 @pytest.mark.Alerts_Frame_Windows
 class TestNestedFramesPage:

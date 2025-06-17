@@ -5,7 +5,7 @@ import allure
 
 link = 'https://demoqa.com/alerts'
 
-@allure.parent_suite("Тесты алертов фреймов и окон")
+@allure.parent_suite("Тесты Alerts Frames and Windows")
 @allure.suite("Тесты алертов")
 @pytest.mark.Alerts_Frame_Windows
 class TestAlerts:

@@ -4,7 +4,7 @@ from pages.Elements.upload_and_download_page import UploadAndDownloadPage
 
 link = 'https://demoqa.com/upload-download'
 
-@allure.parent_suite("Тесты элементов")
+@allure.parent_suite("Тесты Elements")
 @allure.suite("Тесты загрузки и закачки файлов")
 @pytest.mark.Elements
 class TestUploadAndDownload:

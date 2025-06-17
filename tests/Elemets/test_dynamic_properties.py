@@ -3,7 +3,7 @@ import pytest
 import allure
 link = 'https://demoqa.com/dynamic-properties'
 
-@allure.parent_suite("Тесты элементов")
+@allure.parent_suite("Тесты Elements")
 @allure.suite("Тесты динамических свойств")
 @pytest.mark.Elements
 class TestDynamicProperties:

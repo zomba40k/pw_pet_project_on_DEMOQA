@@ -4,7 +4,7 @@ from pages.Elements.text_box import TextBox
 
 link = "https://demoqa.com/text-box"
 
-@allure.parent_suite("Тесты элементов")
+@allure.parent_suite("Тесты Elements")
 @allure.suite("Тесты Text Box, тесты раскрывающихся списков тренажеров")
 @pytest.mark.Elements
 class TestTextBox:

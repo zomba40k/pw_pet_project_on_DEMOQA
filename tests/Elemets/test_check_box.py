@@ -5,7 +5,7 @@ from pages.Elements.check_box import CheckBox
 
 link = 'https://demoqa.com/checkbox'
 
-@allure.parent_suite("Тесты элементов")
+@allure.parent_suite("Тесты Elements")
 @allure.suite("Тесты чек-боксов")
 @pytest.mark.Elements
 class TestCheckBox:

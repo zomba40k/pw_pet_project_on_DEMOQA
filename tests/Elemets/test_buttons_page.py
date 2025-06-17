@@ -4,7 +4,7 @@ import allure
 
 link = ('https://demoqa.com/buttons')
 
-@allure.parent_suite("Тесты элементов")
+@allure.parent_suite("Тесты Elements")
 @allure.suite("Тесты клика по кнопке")
 @pytest.mark.Elements
 class TestButtonsPage:

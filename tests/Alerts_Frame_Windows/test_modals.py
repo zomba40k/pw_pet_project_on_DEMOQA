@@ -5,7 +5,7 @@ import pytest
 
 link = 'https://demoqa.com/modal-dialogs'
 
-@allure.parent_suite("Тесты алертов фреймов и окон")
+@allure.parent_suite("Тесты Alerts Frames and Windows")
 @allure.suite("Тесты модальных окон")
 @pytest.mark.Alerts_Frame_Windows
 class TestModals:

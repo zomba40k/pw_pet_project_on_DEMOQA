@@ -4,7 +4,7 @@ from pages.Elements.links_page import LinksPage
 
 link = 'https://demoqa.com/links'
 
-@allure.parent_suite("Тесты элементов")
+@allure.parent_suite("Тесты Elements")
 @allure.suite("Тесты ссылок")
 @pytest.mark.Elements
 class TestLinksPage:

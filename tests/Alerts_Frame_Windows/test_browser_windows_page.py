@@ -4,7 +4,7 @@ from pages.Alerts_Frame_Windows.browser_windows_page import BrowserWindowsPage
 import pytest
 link = 'https://demoqa.com/browser-windows'
 
-@allure.parent_suite("Тесты алертов фреймов и окон")
+@allure.parent_suite("Тесты Alerts Frames and Windows")
 @allure.suite("Тесты окон и вкладок")
 @pytest.mark.Alerts_Frame_Windows
 class TestBrowserWindowsPage:

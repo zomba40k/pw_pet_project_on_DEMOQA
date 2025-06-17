@@ -6,7 +6,7 @@ import pytest
 
 link = 'https://demoqa.com/frames'
 
-@allure.parent_suite("Тесты алертов фреймов и окон")
+@allure.parent_suite("Тесты Alerts Frames and Windows")
 @allure.suite("Тесты фреймов")
 @pytest.mark.Alerts_Frame_Windows
 class TestFramesPage:

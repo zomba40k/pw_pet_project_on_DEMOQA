@@ -4,7 +4,7 @@ from pages.Elements.web_table import WebTable
 
 link = 'https://demoqa.com/webtables'
 
-@allure.parent_suite("Тесты элементов")
+@allure.parent_suite("Тесты Elements")
 @allure.suite("Тесты Web tables")
 @pytest.mark.Elements
 class TestWebTable:

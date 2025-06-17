@@ -4,7 +4,7 @@ from pages.Elements.radio_button import RadioButton
 
 link = 'https://demoqa.com/radio-button'
 
-@allure.parent_suite("Тесты элементов")
+@allure.parent_suite("Тесты Elements")
 @allure.suite("Тесты Радио-кнопок, тесты работы гиперссылки в лого")
 @pytest.mark.Elements
 class TestRadioButton:

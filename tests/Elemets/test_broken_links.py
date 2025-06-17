@@ -4,7 +4,7 @@ from pages.Elements.broken_links_page import BrokenLinksPage
 
 link = 'https://demoqa.com/broken'
 
-@allure.parent_suite("Тесты элементов")
+@allure.parent_suite("Тесты Elements")
 @allure.suite("Тесты сломанных ссылок")
 @pytest.mark.Elements
 class TestBrokenLinks:
