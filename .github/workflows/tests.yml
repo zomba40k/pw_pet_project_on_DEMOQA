@@ -2,7 +2,7 @@ name: Run Playwright Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
 
 jobs:
@@ -16,43 +16,40 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
+
+      - name: Install Allure CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y default-jre
+          wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
+          tar -zxvf allure-2.27.0.tgz
+          sudo mv allure-2.27.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+          allure --version
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           playwright install --with-deps
-          pip list  # Для отладки
 
       - name: Run tests with Allure
         run: |
-          pytest --alluredir=allure-results --verbose --capture=tee-sys
-        continue-on-error: true  # Продолжает даже при ошибке
+          pytest --alluredir=allure-results
 
       - name: Generate Allure report
-        if: always()  # Запускается всегда
         run: |
-          allure generate allure-results -o allure-report --clean || echo "Allure generation failed, but continuing"
+          allure generate allure-results -o allure-report --clean
 
       - name: Upload Allure results
         uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: allure-results
           path: allure-results
 
       - name: Upload Allure report
         uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: allure-report
           path: allure-report
-
-      - name: Publish Allure Report
-        if: always()
-        uses: simple-elf/allure-report-action@v2.0.0
-        with:
-          allure_results: allure-results
-          allure_report: allure-report
-          github_token: ${{ secrets.GITHUB_TOKEN }}
