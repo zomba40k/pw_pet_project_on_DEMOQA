@@ -57,7 +57,7 @@ class TestPracticeFormPage:
     )
     def test_invalid_field(self, page, invalid_data, error_field):
         with allure.step(f'Тесты невалидных данных в поле {error_field}'):
-            allure.dynamic.title(f'Поле - {error_field} данные - {invalid_data[f'{error_field}']}')
+            allure.dynamic.title(f'Поле - {error_field} данные - {invalid_data[error_field]}')
         form = PracticeFormPage(page)
         form.open(link)
 
