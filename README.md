@@ -41,8 +41,10 @@
   `pytest`
   
 - Для запуска всех тестов с отчетами Allure:
+- 
    `pytest --alluredir=allure-results` - Для запуска тестов
-   `allure serve allure-results` - Для просмотра отчета
+  
+ -  `allure serve allure-results` - Для просмотра отчета
 
 
 ## Чек-лист с проверками
