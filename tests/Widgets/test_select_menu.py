@@ -36,9 +36,9 @@ class TestSelectMenuPage:
         select_page = SelectMenuPage(page)
         select_page.open(link)
         select_page.multiselect_field.click()
-        select_page.page.set_default_timeout(2000)
         select_page.select_option_by_partial_text("multiSelect", "Blu")
         select_page.expect_multiselect_selected(["Blue"])
+        select_page.page.set_default_timeout(2000)
 
     @allure.title('При клике по полю с заголовком Multi select dropdown, можно произвести поиск и выбрать несколько элементов ')
     def test_multiselect_dropdown_multi_selection(self,page):
